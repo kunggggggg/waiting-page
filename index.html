@@ -22,12 +22,29 @@
         }
         .line2 {
             font-size: 20px;
+            display: inline-block;
+            animation: dotAnimation 1s infinite;
         }
         .line3 {
             font-size: 20px;
         }
         .line4 {
             font-size: 20px;
+        }
+
+        @keyframes dotAnimation {
+            0% {
+                content: ".";
+            }
+            25% {
+                content: "..";
+            }
+            50% {
+                content: "...";
+            }
+            75% {
+                content: "....";
+            }
         }
     </style>
 </head>
