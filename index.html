@@ -22,29 +22,13 @@
         }
         .line2 {
             font-size: 20px;
+            display: inline-block;
         }
         .line3 {
             font-size: 20px;
         }
         .line4 {
             font-size: 20px;
-            display: inline-block;
-            animation: dotAnimation 1s infinite;
-        }
-
-        @keyframes dotAnimation {
-            0% {
-                content: ".";
-            }
-            25% {
-                content: "..";
-            }
-            50% {
-                content: "...";
-            }
-            75% {
-                content: "....";
-            }
         }
 
     </style>
@@ -52,9 +36,25 @@
 <body>
     <span class="title">
         <span class="line1">Welcome to our UTOPIA</span><br>
-        <span class="line2">Please wait a moment....</span><br>
+        <span class="line2">Please wait a moment<span id="dots"></span></span><br>
         <span class="line3">The door to the UTOPIA is about to open</span><br>
         <span class="line4">Hoping you can enjoy this journey</span>
     </span>
+
+    <script>
+        var dotsElement = document.getElementById("dots");
+
+        function animateDots() {
+            var dots = ["", ".", "..", "..."];
+            var currentDotIndex = 0;
+
+            setInterval(function() {
+                dotsElement.textContent = dots[currentDotIndex];
+                currentDotIndex = (currentDotIndex + 1) % dots.length;
+            }, 500);
+        }
+
+        animateDots();
+    </script>
 </body>
 </html>
